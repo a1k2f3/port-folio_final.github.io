@@ -21,37 +21,37 @@ app.get('/', (req, res) => {
 });
 
 // Handle the email sending
-app.post('/send-email', async (req, res) => {
-  const { email, subject, message } = req.body;
+// app.post('/send-email', async (req, res) => {
+//   const { email, subject, message } = req.body;
 
-  if (!email || !subject || !message) {
-    return res.status(400).send('All fields are required.');
-  }
+//   if (!email || !subject || !message) {
+//     return res.status(400).send('All fields are required.');
+//   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER, 
-      pass: process.env.EMAIL_PASS, // Use environment variable for password
-    },
-  });
+//   const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: process.env.EMAIL_USER, 
+//       pass: process.env.EMAIL_PASS, // Use environment variable for password
+//     },
+//   });
 
-  const mailOptions = {
-    from: email, // The sender's email (the user's email)
-    to: process.env.EMAIL_USER, // Your email address
-    subject: `Contact Form: ${subject}`, 
-    text: `From: ${email}\n\n${message}`, 
-  };
+//   const mailOptions = {
+//     from: email, // The sender's email (the user's email)
+//     to: process.env.EMAIL_USER, // Your email address
+//     subject: `Contact Form: ${subject}`, 
+//     text: `From: ${email}\n\n${message}`, 
+//   };
 
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: ' + info.response);
-    res.status(200).send('Your message has been sent successfully.');
-  } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).send('Error sending email: ' + error.message);
-  }
-});
+//   try {
+//     const info = await transporter.sendMail(mailOptions);
+//     console.log('Email sent: ' + info.response);
+//     res.status(200).send('Your message has been sent successfully.');
+//   } catch (error) {
+//     console.error('Error sending email:', error);
+//     res.status(500).send('Error sending email: ' + error.message);
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
