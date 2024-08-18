@@ -37,7 +37,7 @@ const ContactForm = () => {
       message
     };
     try {
-      const response = await fetch("http://final-portfolio-zeta.vercel.app/send-email", {
+      const response = await fetch("http://final-portfolio-j5df.vercel.app/send-email", {
         method: "POST",
         body: JSON.stringify(formPayload),
         headers: {
