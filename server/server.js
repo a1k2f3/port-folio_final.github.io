@@ -9,7 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  origin:["http://final-portfolio-wrzt.vercel.app
+ "],
+  method:["POSt,GET"],
+  credentials:true
+));
 
 // Serve the home page
 app.get('/', (req, res) => {
