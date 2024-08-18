@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors(
-  origin:["http://final-portfolio-wrzt.vercel.app
+  origin:["http://final-portfolio-zeta.vercel.app
+
  "],
   method:["POSt,GET"],
   credentials:true
