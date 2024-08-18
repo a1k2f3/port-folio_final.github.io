@@ -9,11 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors(
-  origin:[""],
-  method:["POSt,GET"],
-  credentials:true
-));
+app.use(cors());
 
 // Serve the home page
 app.get('/', (req, res) => {
